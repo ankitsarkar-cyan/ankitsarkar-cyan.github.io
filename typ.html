@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electrical Engineering Calculator</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+        }
+
+        .question-container {
+            display: none; /* Initially hide all question containers */
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        .question-container.active {
+            display: block; /* Show the active question container */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="number"] {
+            width: 100px;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 8px 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+
+        button.nav-button {
+          background-color: #008CBA;
+        }
+
+        #output {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .error-message {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div style="background-color: red; color: white; text-align: center; padding: 10px;">
+        DEVELOPED BY THE GALLANT MEMBERS OF PA
+    </div>
+    <h1>Electrical Engineering Calculator</h1>
+
+    <div id="navigation">
+        <button class="nav-button" onclick="showQuestion(1)">QN 1</button>
+        <button class="nav-button" onclick="showQuestion(2)">QN 2</button>
+        <button class="nav-button" onclick="showQuestion(3)">QN 3</button>
+        <button class="nav-button" onclick="showQuestion(4)">QN 4</button>
+        <button class="nav-button" onclick="showQuestion(5)">QN 5</button>
+        <button class="nav-button" onclick="showQuestion(6)">QN 6</button>
+        <button class="nav-button" onclick="showQuestion(7)">QN 7</button>
+        <button class="nav-button" onclick="showQuestion(8)">QN 8</button>
+        <button class="nav-button" onclick="showQuestion(9)">QN 9</button>
+        <button class="nav-button" onclick="showQuestion(10)">QN 10</button>
+    </div>
+
+    <div id="question1" class="question-container">
+        <h2>Question 1</h2>
+        <label for="X1">Input value of X:</label>
+        <input type="number" id="X1">
+        <label for="Y1">Input value of Y:</label>
+        <input type="number" id="Y1">
+        <button onclick="calculateQ1()">Calculate</button>
+        <div id="output1" class="output"></div>
+    </div>
+
+    <div id="question2" class="question-container">
+        <h2>Question 2</h2>
+        <label for="X2">Input value of X:</label>
+        <input type="number" id="X2">
+        <label for="Y2">Input value of Y:</label>
+        <input type="number" id="Y2">
+        <button onclick="calculateQ2()">Calculate</button>
+        <div id="output2" class="output"></div>
+    </div>
+
+    <div id="question3" class="question-container">
+        <h2>Question 3</h2>
+        <label for="X3">Input value of X:</label>
+        <input type="number" id="X3">
+        <label for="Y3">Input value of Y:</label>
+        <input type="number" id="Y3">
+        <label for="R3">Input value of R:</label>
+        <input type="number" id="R3">
+        <button onclick="calculateQ3()">Calculate</button>
+        <div id="output3" class="output"></div>
+    </div>
+
+    <div id="question4" class="question-container">
+        <h2>Question 4</h2>
+        <label for="X4">Input value of X:</label>
+        <input type="number" id="X4">
+        <button onclick="calculateQ4()">Calculate</button>
+        <div id="output4" class="output"></div>
+    </div>
+
+    <div id="question5" class="question-container">
+        <h2>Question 5</h2>
+        <label for="X5">Input value of X:</label>
+        <input type="number" id="X5">
+        <label for="rl5">Input value of rl:</label>
+        <input type="number" id="rl5">
+        <button onclick="calculateQ5()">Calculate</button>
+        <div id="output5" class="output"></div>
+    </div>
+
+    <div id="question6" class="question-container">
+        <h2>Question 6</h2>
+        <label for="Y6">Input value of Y:</label>
+        <input type="number" id="Y6">
+        <label for="Z6">Input value of Z:</label>
+        <input type="number" id="Z6">
+        <button onclick="calculateQ6()">Calculate</button>
+        <div id="output6" class="output"></div>
+    </div>
+
+    <div id="question7" class="question-container">
+        <h2>Question 7</h2>
+        <label for="Y7">Input value of Y:</label>
+        <input type="number" id="Y7">
+        <label for="Z7">Input value of Z:</label>
+        <input type="number" id="Z7">
+        <button onclick="calculateQ7()">Calculate</button>
+        <div id="output7" class="output"></div>
+    </div>
+
+    <div id="question8" class="question-container">
+        <h2>Question 8</h2>
+        <label for="Y8">Input value of Y:</label>
+        <input type="number" id="Y8">
+        <label for="Z8">Input value of Z:</label>
+        <input type="number" id="Z8">
+        <button onclick="calculateQ8()">Calculate</button>
+        <div id="output8" class="output"></div>
+    </div>
+
+    <div id="question9" class="question-container">
+        <h2>Question 9</h2>
+        <label for="X9">Input value of X:</label>
+        <input type="number" id="X9">
+        <label for="Y9">Input value of Y:</label>
+        <input type="number" id="Y9">
+        <button onclick="calculateQ9()">Calculate</button>
+        <div id="output9" class="output"></div>
+    </div>
+
+    <div id="question10" class="question-container">
+        <h2>Question 10</h2>
+        <label for="X10">Input value of X:</label>
+        <input type="number" id="X10">
+        <button onclick="calculateQ10()">Calculate</button>
+        <div id="output10" class="output"></div>
+    </div>
+
+
+
+    <script>
+        function showQuestion(questionNumber) {
+            // Hide all question containers
+            const containers = document.querySelectorAll('.question-container');
+            containers.forEach(container => container.classList.remove('active'));
+
+            // Show the selected question container
+            const selectedContainer = document.getElementById(`question${questionNumber}`);
+            if (selectedContainer) {
+                selectedContainer.classList.add('active');
+            }
+        }
+
+
+        function calculateQ1() {
+    const X = parseFloat(document.getElementById('X1').value);
+    const Y = parseFloat(document.getElementById('Y1').value);
+    const result = (2 * Y) / Math.PI - X;
+    document.getElementById('output1').textContent = `Irms: ${result.toFixed(3)}`;
+}
+
+        function calculateQ2() {
+            const X = parseFloat(document.getElementById('X2').value);
+            const Y = parseFloat(document.getElementById('Y2').value);
+            const integral_squared = 2 * Math.PI * (X**2) + Math.PI * (Y**2);
+            const result = Math.sqrt(integral_squared / (2 * Math.PI));
+            document.getElementById('output2').textContent = `Irms: ${result.toFixed(3)}`;
+        }
+
+        function calculateQ3() {
+            const X = parseFloat(document.getElementById('X3').value);
+            const Y = parseFloat(document.getElementById('Y3').value);
+            const R = parseFloat(document.getElementById('R3').value);
+            const integral_squared = 2 * Math.PI * (X ** 2) + Math.PI * (Y ** 2);
+            const result = Math.sqrt(integral_squared / (2 * Math.PI));
+            const power = (result ** 2 * R);
+            document.getElementById('output3').textContent = `Power: ${power.toFixed(3)}`;
+        }
+
+
+       function calculateQ4() {
+            const X = parseFloat(document.getElementById('X4').value);
+            const cos_phi = (230**2 - 75**2 - X**2) / (2 * 75 * X);
+
+            if (isNaN(cos_phi))
+                document.getElementById('output4').textContent = `cos(phi): Calculation error: Division by zero or invalid input.`;
+            else
+                document.getElementById('output4').textContent = `cos(phi): ${cos_phi.toFixed(3)}`;
+        }
+
+        function calculateQ5() {
+          const X = parseFloat(document.getElementById('X5').value);
+          const rl = parseFloat(document.getElementById('rl5').value);
+
+          const cos_phi = (230**2 - 75**2 - X**2) / (2 * 75 * X);
+          const I_rl = X * cos_phi;
+          const I = I_rl / rl;
+          const power = X * I * cos_phi;
+
+          if (isNaN(power)) {
+            document.getElementById('output5').textContent = 'Power: Calculation error. Check inputs.';
+          } else {
+            document.getElementById('output5').textContent = `Power: ${power.toFixed(3)}`;
+          }
+        }
+
+        function calculateQ6() {
+            const Y = parseFloat(document.getElementById('Y6').value);
+            const Z = parseFloat(document.getElementById('Z6').value);
+
+            const Z1 = 150 / Y;
+            const Z2 = 150 / Z;
+            const s1 = (Z1 ** 2) - (Z2 ** 2);
+
+            if (s1 < 0) {
+                document.getElementById('output6').innerHTML = "<span class='error-message'>Calculation error: s1 is negative, so the square root is not real!</span>";
+            } else {
+                const b = (4 / 3) * Math.sqrt(s1);
+                document.getElementById('output6').textContent = `Solution: b = ${b.toFixed(3)}`;
+            }
+        }
+
+       function calculateQ7() {
+          const Y = parseFloat(document.getElementById('Y7').value);
+          const Z = parseFloat(document.getElementById('Z7').value);
+
+          const Z1 = 150 / Y;
+          const Z2 = 150 / Z;
+          const s1 = (Z1 ** 2) - (Z2 ** 2);
+          if (s1 < 0) {
+            document.getElementById('output7').innerHTML =
+              "<span class='error-message'>Calculation error: s1 is negative, so the square root is not real!</span>";
+          } else {
+            const a = (5 / 3) * Math.sqrt(s1);
+            document.getElementById('output7').textContent = `Solution: a = ${a.toFixed(3)}`;
+          }
+        }
+
+        function calculateQ8() {
+            const Y = parseFloat(document.getElementById('Y8').value);
+            const Z = parseFloat(document.getElementById('Z8').value);
+
+            const Z1 = 150 / Y;
+            const Z2 = 150 / Z;
+            const s1 = (Z1 ** 2) - (Z2 ** 2);
+
+            if (s1 < 0) {
+               document.getElementById('output8').innerHTML = "<span class='error-message'>Calculation error: s1 is negative, so the square root is not real!</span>";
+            }
+            else{
+              const b = (4 / 3) * Math.sqrt(s1);
+              const I = Z;
+              const power = (I**2) * b;
+              document.getElementById('output8').textContent = `Solution: ${power.toFixed(3)}`;
+            }
+        }
+
+        function calculateQ9() {
+            const X = parseFloat(document.getElementById('X9').value);
+            const Y = parseFloat(document.getElementById('Y9').value);
+            const Power = X**2 + (10*Y)/4;
+            document.getElementById('output9').textContent = `Power: ${Power.toFixed(3)}`;
+        }
+
+        function calculateQ10() {
+    const X = parseFloat(document.getElementById('X10').value);
+    // Fix: use proper parentheses so the unary '-' applies to (X**2)
+    const ans = -(X**2) * 0.4;
+    document.getElementById('output10').textContent = `Y: ${ans.toFixed(3)}`;
+  }
+
+
+        // Initially show the first question
+        showQuestion(1);
+    </script>
+</body>
+</html>
